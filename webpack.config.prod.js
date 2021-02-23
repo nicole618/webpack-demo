@@ -1,18 +1,9 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const base = require('./webpack.config.base')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
-    mode:'production',
-    devtool: 'inline-source-map',
-    entry: './src/index.js',
-    output: {
-        filename: 'index.[contenthash].js',
-    },
+    ...base,
     plugins: [
-        new HtmlWebpackPlugin({
-        title:'My App',
-        template: "src/assets/index.html"
-        }),
+        ...base.plugins,
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
             chunkFilename: '[id].[contenthash].css',
