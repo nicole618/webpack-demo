@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "rimraf dist && webpack --config webpack.config.prod.js",
+    "build": "rimraf dist && webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,7 +18,11 @@
     "webpack-dev-server": "^3.11.2"
   },
   "devDependencies": {
+    "dart-sass": "^1.25.0",
     "html-webpack-plugin": "^5.2.0",
+    "less": "^4.1.1",
+    "less-loader": "^8.0.0",
+    "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "webpack-cli": "3"
   }

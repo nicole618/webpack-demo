@@ -12,5 +12,43 @@ module.exports = {
             template: "src/assets/index.html"
         }),
     ],
+    module: {
+        rules: [
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    // Creates `style` nodes from JS strings
+                    "style-loader",
+                    // Translates CSS into CommonJS
+                    "css-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            implementation:require('dart-sass')
+                        }
+                    }
+                ],
+            },
+            {
+                test: /\.less$/i,
+                use: [
+                    {
+                        loader: "style-loader",
+                    },
+                    {
+                        loader: "css-loader",
+                    },
+                    {
+                        loader: "less-loader",
+                        options: {
+                            lessOptions: {
+                                strictMath: true,
+                            },
+                        },
+                    },
+                ],
+            }
+        ],
+    },
 };
 
