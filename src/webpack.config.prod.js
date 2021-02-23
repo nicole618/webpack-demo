@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
-    mode:'development',
+    mode:'production',
     devtool: 'inline-source-map',
     entry: './src/index.js',
     output: {
@@ -22,7 +22,12 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                use: [{
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        publicPath: '../ ',
+                    },
+                }, "css-loader"],
             },
         ],
     },
